@@ -1,7 +1,7 @@
 #include "Scanner_Library.h"
 #include "Parser_Library.h"
 
-
+//teste
 
 FILE * criar_Arquivo(char nome[]) {
 	FILE *aux;
