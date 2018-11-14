@@ -18,6 +18,9 @@ void printError(Ttolken tk, int linha, int coluna) {
 	case ERRO_COMENTARIO_NAO_TERMINADO:
 		printf("\nESPERADO UM TERMINO DE COMENTARIO");
 		break;
+	case ERRO_TIPO_CHAR:
+		printf("\nESPERADO UM CHAR (CHAR MAL FORMADO)");
+		break;
 	}
 	printf("\nULTIMO CARACTER LIDO %s", tk.lexema);
 	exit(-1);
@@ -70,7 +73,7 @@ Ttolken scan(FILE * arq) {
 						coluna++;
 					}
 					string[i] = '\0';
-					tk.classificacao = FLOAT;
+					tk.classificacao = TIPO_FLOAT;
 					strcpy(tk.lexema, string);
 					return tk;
 				}
@@ -104,7 +107,7 @@ Ttolken scan(FILE * arq) {
 					coluna++;
 				}
 				string[i] = '\0';
-				tk.classificacao = FLOAT;
+				tk.classificacao = TIPO_FLOAT;
 				strcpy(tk.lexema, string);
 				c = fgetc(arq);
 				coluna++;
@@ -371,8 +374,7 @@ Ttolken scan(FILE * arq) {
 			string[i] = c;
 			i++;
 			c = fgetc(arq);
-			coluna++;
-			
+			coluna++;			
 			if (isdigit(c) || isalpha(c)) {
 				string[i] = c;
 				i++;
