@@ -8,4 +8,5 @@ int escopo;
 TStack * pilha;
 int varTemp;
 int label;
+
 #endif

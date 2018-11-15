@@ -109,8 +109,8 @@ Ttolken scan(FILE * arq) {
 				string[i] = '\0';
 				tk.classificacao = TIPO_FLOAT;
 				strcpy(tk.lexema, string);
-				c = fgetc(arq);
-				coluna++;
+				/*c = fgetc(arq);//talvez isso não seja necessário
+				coluna++;*/
 				return tk;
 			}
 			else {
